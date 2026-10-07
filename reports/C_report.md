@@ -78,7 +78,9 @@ ecc shows that the load position is the main driver of this pattern.
 5. Rows 4377 and 4381 have Mr_c near 0.1, while similar rows are near
    1.0 to 1.4. Are they errors?
 6. What does gammaG mean?
-7. What does M_ov mean? (It appears in B's heatmap but not in the data file.)
+7. M_ov appears to equal N × ecc (the load times its distance from the
+   centre). Is this the overturning moment? If so, it is not an independent
+   input, which affects how we read the correlation heatmap.
 
 ## 6. Conclusion
 The off-center load (ecc) and the load size (N) drive the results. The
