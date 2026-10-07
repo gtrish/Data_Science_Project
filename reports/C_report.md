@@ -15,7 +15,19 @@ confirmed with the mentor.)
 - 4 results: Mr_t, Mt_t, Mr_c, Mt_c.
 - No missing values and no duplicate rows.
 - Every combination of input values appears exactly once.
-- Cleaning steps: [ask A and write them here].
+- Cleaning steps (done by A):
+  1. Loaded the dataset and found its structure: a full factorial grid
+     of 5,184 runs.
+  2. Checked for missing values: none found.
+  3. Checked for duplicate rows: none found.
+  4. Checked data types: all columns are numeric.
+  5. Dropped the `Sample` column, because it is only a row number and
+     carries no information.
+  6. Calculated summary statistics (mean, median, standard deviation,
+     quartiles) with `describe()`.
+  7. Plotted histograms and boxplots for all 13 columns.
+  8. Saved the result as `fem_cleaned.csv`: 5,184 rows and 13 columns
+     (9 inputs and 4 results).
 
 ## 3. Findings
 
