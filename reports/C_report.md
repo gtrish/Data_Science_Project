@@ -32,7 +32,7 @@ confirmed with the mentor.)
   - `fem_cleaned.csv` (A): the cleaned data, 13 columns.
   - `data_with_flags.csv` (B): the same rows with 5 extra columns: the
     outlier flags (`outlier_global`, `outlier_group`, `outlier_mad`,
-    `suspect_row`) and `M_ov`. 18 columns in total.
+    `suspect_row`) and `M_ov`, which equals N × ecc. 18 columns in total.
   - `outliers_only.csv` (C): the 77 rows flagged by at least one method,
     with a `flagged_by` column, made for separate outlier tests.
 
@@ -123,9 +123,9 @@ To run it: `streamlit run dashboard.py`
 5. Rows 4377 and 4381 have Mr_c near 0.1, while similar rows are near
    1.0 to 1.4. Are they errors?
 6. What does gammaG mean?
-7. M_ov appears to equal N × ecc (the load times its distance from the
-   centre). Is this the overturning moment? If so, it is not an
-   independent input, which affects how we read the correlation heatmap.
+7. M_ov equals N × ecc exactly (we checked every row). Is this the
+   overturning moment? It is not an independent input, so it should be
+   left out of the correlation heatmap.
 
 ## 7. Conclusion
 The off-center load (ecc) and the load size (N) drive the results. The
