@@ -47,11 +47,15 @@ st.pyplot(fig)
 
 # 3. Findings
 st.header("3. Main findings")
-st.write("- **ecc** (load off-center) has the biggest effect.")
-st.write("- **N** (load size) is second.")
-st.write("- **Dbot** has a small effect.")
-st.write("- **Econc**, **gammaG** and **Esoil** have almost no effect.")
-
+rows = {}
+for i in inputs:
+    m = df.groupby(i)[outputs].mean()
+    rows[i] = (m.max() - m.min()) / df[outputs].std()
+eff = pd.DataFrame(rows).T.round(2)
+eff = eff.loc[eff.sum(axis=1).sort_values(ascending=False).index]
+st.dataframe(eff)
+st.write("Effect size = spread of group averages ÷ output std. Bigger = stronger. "
+         "`ecc` is first and `N` is second. The effect of Dbot, H1 and H2 depends on the output.")
 # 4. Outliers
 st.header("4. Outliers")
 st.write("Outliers were flagged, not removed. Pick a method to see its rows.")
